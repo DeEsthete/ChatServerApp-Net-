@@ -22,11 +22,14 @@ namespace ChatServerApp
                 serverSocket.Listen(MAX_CLIENT_QUEUE);
                 while (true)
                 {
-                    //-------Помещаем сокет в массив
-                    sockets.Add(serverSocket.Accept());
-                    int socketIndex = sockets.Count - 1;
-                    //-------
-                    ConnectClient(socketIndex);
+                    if (sockets.Count < 3)
+                    {
+                        //-------Помещаем сокет в массив
+                        sockets.Add(serverSocket.Accept());
+                        int socketIndex = sockets.Count - 1;
+                        //-------
+                        ConnectClient(socketIndex);
+                    }
                 }
             }
             catch (SocketException ex)
