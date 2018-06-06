@@ -12,6 +12,7 @@ namespace ChatServerApp
     {
         private const int MAX_CLIENT_QUEUE = 3;
         private List<Socket> sockets = new List<Socket>();
+        
 
         public void Work(Socket serverSocket)
         {
